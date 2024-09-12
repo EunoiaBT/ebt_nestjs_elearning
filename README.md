@@ -1,73 +1,107 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# eLearning App Backend 🎓
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This repository contains the backend services for the eLearning App, built with NestJS. It serves as the server-side component for the Flutter-based eLearning application, providing RESTful APIs for user management, course content, quizzes, and other essential functionalities.
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The backend is designed with a modular architecture, ensuring scalability and maintainability. It connects to a MongoDB database for data storage and uses Nodemailer and SendGrid for email notifications. This setup ensures robust performance and seamless integration with the Flutter frontend.
 
-## Installation
+## Tech Stack 🛠️
 
-```bash
-$ pnpm install
+- **NestJS**: A progressive Node.js framework for building efficient and scalable server-side applications.
+- **MongoDB**: A NoSQL database used for storing application data.
+- **Nodemailer**: A module for sending emails from Node.js applications.
+- **SendGrid**: A cloud-based service that provides email delivery and marketing campaigns.
+
+## Features ✨
+
+- **User Authentication**: Secure user sign-up, login, and profile management.
+- **Course Management**: APIs for creating, updating, and managing courses.
+- **Quiz Handling**: APIs for managing quizzes and tracking user progress.
+- **Email Notifications**: Automated email notifications using Nodemailer and SendGrid.
+- **Scalable Architecture**: Designed to handle growing user bases and expanding features.
+
+## Installation 🚀
+
+Follow these steps to set up the backend locally:
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone git@github.com:EunoiaBT/ebt_nestjs_elearning.git
+   cd ebt_nestjs_elearning
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   pnpm i
+   ```
+
+3. **Set up environment variables**:
+
+   Create a `.env` file in the root directory with the following variables:
+
+   ```plaintext
+   MONGODB_URI=<your-mongodb-connection-string>
+   SENDGRID_API_KEY=<your-sendgrid-api-key>
+   EMAIL_FROM=<your-email-address>
+   ```
+
+4. **Run the application**:
+
+   ```bash
+   pnpm start:dev
+   ```
+
+5. **Access the API documentation**:
+   Navigate to `http://localhost:3000/api/v1/*` to view the Swagger API documentation.
+
+## Project Structure 🗂️
+
+The project follows a modular architecture to keep the codebase organized and maintainable:
+
+```plaintext
+src/
+│
+├── auth/                      # Authentication module
+├── common/                    # Common utilities and helpers
+├── course/                    # Course management module
+├── quiz/                      # Quiz handling module
+├── mail/                      # Email service module (Nodemailer & SendGrid)
+├── user/                      # User management module
+├── app.module.ts              # Root module
+└── main.ts                    # Entry point of the application
 ```
 
-## Running the app
+## Contributing 🤝
 
-```bash
-# development
-$ pnpm run start
+We welcome contributions from developers of all skill levels! Here’s how you can help:
 
-# watch mode
-$ pnpm run start:dev
+1. **Fork the repository**.
+2. **Create a new branch**:
+   ```bash
+   git checkout -b feature-branch-name
+   ```
+3. **Make your changes** and commit them with descriptive messages.
+4. **Push to your branch**:
+   ```bash
+   git push origin feature-branch-name
+   ```
+5. **Create a pull request** explaining your changes.
 
-# production mode
-$ pnpm run start:prod
-```
+Please ensure your code follows our coding standards and adheres to the Clean Architecture principles before submitting a pull request.
 
-## Test
+## License 📄
 
-```bash
-# unit tests
-$ pnpm run test
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-# e2e tests
-$ pnpm run test:e2e
+## Contact 📧
 
-# test coverage
-$ pnpm run test:cov
-```
+For any questions, suggestions, or issues, feel free to open an issue or reach out via email:
 
-## Support
+- **Email**: [fsd.rabgay@gmail.com](mailto:fsd.rabgay@gmail.com)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Acknowledgements 🙌
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+A big thank you to the open-source community for providing the tools and resources that made this project possible.
